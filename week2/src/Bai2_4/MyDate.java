@@ -1,4 +1,5 @@
 package Bai2_4;
 
-public class MyDate {
+class MyDate {
+
 }

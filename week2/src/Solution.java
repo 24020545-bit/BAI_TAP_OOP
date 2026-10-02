@@ -79,13 +79,18 @@ public class Solution{
          }
          int one = arr[0];
          int second = Integer.MIN_VALUE;
+         int dem=0;
          for(int i=0; i<arr.length; i++){
              if(arr[i]>one){
                  second = one;
                  one = arr[i];
              }else if(arr[i]>second && arr[i]!=one){
                  second = arr[i];
+                 dem++;
              }
+         }
+         if(dem==0){
+             return -1;
          }
          return second;
     }
