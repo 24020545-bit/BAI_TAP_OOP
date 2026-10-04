@@ -12,8 +12,8 @@ class MyDate {
         this.month=a.month;
         this.year=a.year;
     }
-    public void getMyDate(MyDate a){
-        System.out.println(a.day+"/"+a.month+"/"+a.year);
+    public void printMyDate(){
+        System.out.println(day+"/"+month+"/"+year);
     }
 }
 
@@ -28,12 +28,17 @@ class Employee{
         this.name=a.name;
         this.birthday=new MyDate(a.birthday);
     }
+    public MyDate getBirthday(){
+        return this.birthday;
+    }
 }
 public class main{
     public static void main(String[] args){
         MyDate date = new MyDate(21,4,2006);
         Employee emp1 = new Employee("Vu Van Kien", date);
         Employee emp2 = new Employee(emp1);
-
+        System.out.print("Ngay sinh emp2: ");
+        MyDate date2 = emp2.getBirthday();
+        date2.printMyDate();
     }
 }
