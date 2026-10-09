@@ -6,13 +6,12 @@ import java.util.Locale;
 import java.util.Scanner;
 
 class Product{
-    private static int id = 0;
+    private int id;
     private String name;
     private double finalPrice;
     private String type;
 
     public Product(String name, double finalPice) {
-        id++;
         this.name = name;
         this.finalPrice = finalPice;
     }
@@ -65,9 +64,9 @@ class Food extends Product {
 
     @Override
     public double getPrice() {
-        long days = ChronoUnit.DAYS.between(time, LocalDate.now());
+        long days = ChronoUnit.DAYS.between(LocalDate.now(),time);
 
-        if (days < 7) {
+        if (days < 7 && days>0) {
             return this.getFinalPice()*0.8;
         }
         return this.getFinalPice();
@@ -113,11 +112,7 @@ public class main {
         }
 
         for(Product p : products){
-            System.out.println(
-                    p.getName() + " - " +
-                            p.getType() + " - " +
-                            p.getPrice()
-            );
+            System.out.println(p.getName() + " - " + p.getType() + " - " + p.getPrice());
             totalPrice += p.getPrice();
         }
         System.out.println("Total = " + totalPrice);
