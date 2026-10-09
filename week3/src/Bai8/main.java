@@ -11,6 +11,9 @@ class Robot{
         this.id = id;
         this.modelName = modelName;
     }
+    public String getModelName() {
+        return modelName;
+    }
     public void chargeBattery(){
         batteryLevel = 100;
     }
@@ -25,11 +28,11 @@ class DroneRobot extends Robot implements Flyable, GPS{
     }
     @Override
     public void fly(){
-        System.out.println("Fly Fly");
+        System.out.println("Co the fly");
     }
     @Override
     public void getCoordinates(){
-        System.out.println("Drone co GPS");
+        System.out.println("co GPS");
     }
 }
 class FishRobot extends Robot implements Swimmable{
@@ -38,7 +41,7 @@ class FishRobot extends Robot implements Swimmable{
     }
     @Override
     public void swim(){
-        System.out.println("Fish Robot co the boi");
+        System.out.println("co the boi");
     }
 }
 class AmphibiousRobot extends Robot implements Flyable, GPS, Swimmable{
@@ -47,15 +50,15 @@ class AmphibiousRobot extends Robot implements Flyable, GPS, Swimmable{
     }
     @Override
     public void fly(){
-        System.out.println("Robot co the Fly");
+        System.out.println("co the Fly");
     }
     @Override
     public void swim(){
-        System.out.println("Robot co the Swim");
+        System.out.println("co the boi");
     }
     @Override
     public void getCoordinates(){
-        System.out.println("Robot co GPS");
+        System.out.println("co GPS");
     }
 }
 
@@ -86,7 +89,7 @@ public class main {
         for (Robot robot : robots) {
 
             robot.performMainTask();
-
+            System.out.println(robot.getModelName());
             if (robot instanceof Flyable) {
                 Flyable flyRobot = (Flyable) robot;
                 flyRobot.fly();
